@@ -1,0 +1,1168 @@
+/*__________________________________________________________________
+----------------------------    GLOBAL    --------------------------
+--------------------------------------------------------------------*/
+* {
+  font-family: 'Inter', sans-serif, Arial;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+} h1, h2, h3, ul {
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.name,
+#menuToggle {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+}
+
+
+/*__________________________________________________________________
+-------------------------    NAVIGATION    -------------------------
+--------------------------------------------------------------------*/
+#main-nav {
+  background-color: #222629;
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 1px 5px 0 #474B4F;
+  transition: all 0.9s;
+}
+
+.name-wrap {
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+  width: 193px;
+}
+
+.diamond {
+  fill: #6b6e70;
+  height: 32px;
+  width: 32px;
+  margin-top: 12px;
+  margin-left: 11px;
+}
+.name {
+  color: #ddd;
+  font-size: 1.3em;
+  font-weight: 600;
+  margin-top: 13px;
+  cursor: default;
+}
+
+/*-------------   Menu   -------------*/
+.large-menu {display: none;}
+
+#menuToggle {
+  width: 20px;
+  height: 20px;
+  margin-right: 4.5%;
+  margin-top: 16px;
+}
+/*Toggle button*/
+#menuToggle input {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  z-index: 2; /* place checkbox over the hamburger */
+  opacity: 0; /*hide it*/
+  cursor: pointer;
+  -webkit-touch-callout: none;
+}
+
+/*hamburgerMenu lines*/
+.hamburger {
+  display: block;
+  width: 20px;
+  height: 2px;
+  margin-bottom: 5px;
+  background-color: #ddd;
+  border-radius: 3px;
+  transform-origin: -2px 1px;
+  transition: transform 0.6s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.6s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.6s ease;
+}
+
+/*Menu Transforms*/
+.hamburger:first-child {
+  transform-origin: 0;
+} .hamburger:nth-last-child(2) {
+  transform-origin: 0 100%;
+}
+#menuToggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-0.52em, -12.5px);
+  background: #ddd;
+} #menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+} #menuToggle input:checked ~ span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(-3px, 7px);
+}
+
+
+/*Dropdown menu*/
+.mobile-menu {
+  text-align: center;
+  background-color: #222629;
+  position: fixed;
+  top: -100%;
+  z-index: 2;
+  width: 100%;
+  transition: all 0.7s;
+  opacity: 0.97;
+}
+
+.mobile-menu li {
+  font-size: 1.1em;
+}
+
+.mobile-menu li a {
+  display: block;
+  width: 100%;
+  padding: 9px 0;
+  color: rgba(221, 221, 221, 0.7);
+  transition: all 0.3s ease;
+}
+.mobile-menu li a:hover {
+  background-color: #86C232;
+  color: #FFF;
+}
+
+/*__________________________________________________________________
+-----------------------    BODY CONTAINER    -----------------------
+--------------------------------------------------------------------*/
+.container {
+  width: 100%;
+  position: absolute;
+  top: 50px;
+  background-color: #222629;
+  padding-bottom: 20px;
+}
+
+/*-------------   Containers   -------------*/
+#about,
+#portfolio,
+#contact {
+  overflow: hidden;
+  width: 90%;
+  margin: auto;
+  padding-bottom: 20px;
+}
+/*----------   Containers Title  ----------*/
+.title-b {
+  margin-top: 20px;
+  margin-bottom: 8px;
+  font-size: 1.7em;
+  font-weight: 600;
+  color: #ddd;
+}.divider {
+  border: 1px solid #86C232;
+  border-top: 0;
+}
+
+/*__________________________________________________________________
+--------------------------     COVER     ---------------------------
+--------------------------------------------------------------------*/
+#home {
+  height: 200px;
+  overflow: hidden;
+  background: url('../img/background-sm.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.home_overlay {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(34, 38, 41, 0.57);
+}
+
+.title {
+  text-align: center;
+  font-size: 1.56em;
+  font-weight: 800;
+  color: #fff;
+  margin-top: 60px;
+  /* letter-spacing: 1px; */
+}
+.sub-title {
+  text-align: center;
+  font-size: 1.05em;
+  font-weight: 600;
+  color: #86C232;
+  margin-top: 20px;
+}
+
+/*__________________________________________________________________
+--------------------------     ABOUT     ---------------------------
+--------------------------------------------------------------------*/
+.profile-pic {
+  display: block;
+  margin: auto;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  border-radius: 5px;
+  width: 78%;
+  max-width: 296px;
+  cursor: pointer;
+}
+
+#about p {
+  color: #fff;
+  text-align: left;
+  font-size: 1em;
+  line-height: 1.35;
+}
+
+/*-------------   SKILLS   -------------*/
+#about h2 {
+  text-align: center;
+  color: #86C232;
+  font-weight: 400;
+  font-size: 1.5em;
+  margin: 20px 0 10px 0;
+}
+
+.skills {
+  margin: auto;
+  width: 95%;
+  max-width: 305px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}.skill {
+  padding: 4px 14px;
+  font-weight: 400;
+  font-size: 1em;
+  border: 2px solid #86C232;
+  color: #ddd;
+  border-radius: 30px;
+  margin: 5px 0px;
+  cursor: default;
+}
+
+/*__________________________________________________________________
+------------------------     PORTFOLIO     -------------------------
+--------------------------------------------------------------------*/
+.card {
+  margin: auto;
+  margin-top: 25px;
+  width: 262px;
+  height: 385px;
+  border-radius: 5px;
+  background-color: #fff;
+  border: 3px solid #474b4f;
+}
+
+/*-------------   Cover Images   -------------*/
+.card_cover-coingecon, .card_cover-webapp,
+.card_cover-api, .card_cover-photoGallery,
+.card_cover-webGuide, .card_cover-gameApp,
+.card_cover-form, .card_cover-responsiveLayout {
+  width: 100%;
+  height: 160px;
+  border-radius: 2px 2px 0 0;
+}
+
+.card_cover-coingecon {
+  background: url('../img/thumbnails/Coingecon-sm.png') no-repeat;
+  background-size: cover;
+}.card_cover-webapp {
+  background: url('../img/thumbnails/WebApp-sm.png') no-repeat;
+  background-size: cover;
+}.card_cover-api {
+  background: url('../img/thumbnails/ApiDirectory-sm.png') no-repeat;
+  background-size: cover;
+}.card_cover-photoGallery {
+  background: url('../img/thumbnails/PhotoGallery-sm.png') no-repeat;
+  background-size: cover;
+}.card_cover-webGuide {
+  background: url('../img/thumbnails/WebGuide-sm.png') no-repeat;
+  background-size: cover;
+}.card_cover-gameApp {
+  background: url('../img/thumbnails/GameApp-sm.png') no-repeat;
+  background-size: cover;
+}.card_cover-form {
+  background: url('../img/thumbnails/Form-sm.png') no-repeat;
+  background-size: cover;
+}.card_cover-responsiveLayout {
+  background: url('../img/thumbnails/ResponsiveLayout-sm.png') no-repeat;
+  background-size: cover;
+}
+
+/*-------------   Flex container   -------------*/
+.card_flex {
+  width: 90%;
+  margin: auto;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  height: 205px;
+  overflow: hidden;
+}
+
+.card_title {
+  font-weight: 600;
+  font-size: 1.2em;
+  color: #222629;
+}
+.card_description {
+  margin-top: 5px;
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 1.1;
+  color: #474B4F;
+}
+
+.card_button {
+  text-align: center;
+  padding-top: 7px;
+  width: 100%;
+  height: 35px;
+  border: none;
+  background-color: #86C232;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.7s;
+}
+.card_flex a {
+  margin-top: auto;
+}
+.card_button:hover {
+  background-color: #61892F;
+}
+
+
+/*__________________________________________________________________
+-------------------------     CONTACT     --------------------------
+--------------------------------------------------------------------*/
+.contact-message {
+  color: #fff;
+  font-size: 0.95em;
+  line-height: 1.35;
+  margin-top: 10px;
+}
+/*-------------   Email Me   -------------*/
+.social {
+  width: 70%;
+  max-width: 220px;
+  margin: auto;
+  margin-top: 10px;
+}
+.email-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.email-wrap p {
+  color: #ddd;
+  font-size: 0.95em;
+  letter-spacing: 1px;
+}
+
+.mail-icon {
+  width: 38px;
+  height: 38px;
+}
+
+
+
+/*-------------   Social Media   -------------*/
+.social-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.github-icon {
+  width: 41px;
+  height: 41px;
+  margin-top: -3px;
+}
+
+.instagram-icon,
+.facebook-icon {
+  width: 35px;
+  height: 35px;
+}
+
+
+/*---------   Hover effects  ---------*/
+.mail-icon, #mail,
+.github-icon, #github,
+.instagram-icon, #instagram,
+.facebook-icon, #facebook {
+  transition: all 0.5s;
+}
+
+.mail-icon:hover,
+.github-icon:hover,
+.instagram-icon:hover,
+.facebook-icon:hover {
+  transform: scale(1.2);
+}
+.github-icon:hover #github,
+.instagram-icon:hover #instagram,
+ .facebook-icon:hover #facebook,
+ .mail-icon:hover #mail {
+  fill: #86C232;
+}
+
+
+/*__________________________________________________________________
+-----------------------     OVERLAY PIC     ------------------------
+--------------------------------------------------------------------*/
+.hidden {
+  display: none;
+}
+
+.overlay {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(34, 38, 41, 0.9);
+}
+.modal {
+  position: fixed;
+  z-index: 1000;
+  top: 25%;
+  left: 50%;
+  background-color: #000;
+  border: 2px solid #86C232;
+  border-radius: 5px;
+  text-align: center;
+  width: 250px;
+  margin-left: -125px;
+  height: 281px;
+}
+
+.modal-close {
+  position: absolute;
+  right: 7px;
+  top: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  color: rgba(34, 38, 41, 0.8);
+}
+.modal-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+}
+
+
+/*__________________________________________________________________
+-----------------------    MEDIA QUERIES    ------------------------
+--------------------------------------------------------------------*/
+@media all and (min-width:375px) {
+  /*_______________________________
+    ---------   COVER   ---------*/
+  .title {
+    font-size: 1.65em;
+    letter-spacing: 1px;
+  }.sub-title {
+    font-size: 1.1em;
+  }
+  /*------- SKILLS -------*/
+  #about h2 {
+    margin: 25px 0 15px 0;
+  }
+
+  .modal {
+    width: 270px;
+    height: 304px;
+  }
+}
+
+
+
+
+
+@media all and (min-width: 425px) {
+  /*_______________________________
+    ---------   COVER   ---------*/
+  #home {
+    height: 250px;
+  }
+  .title {
+    margin-top: 75px;
+    font-size: 1.7em;
+  }
+  .sub-title {
+    font-size: 1.15em;
+  }
+
+  /*____________________________________
+    ----------   PORTFOLIO   ----------*/
+  .card {
+    width: 300px;
+    height: 441px;
+  }
+  /*------- Cover Images -------*/
+  .card_cover-coingecon, .card_cover-webapp,
+  .card_cover-api, .card_cover-photoGallery,
+  .card_cover-webGuide, .card_cover-gameApp,
+  .card_cover-form, .card_cover-responsiveLayout {
+    height: 185px;
+  }
+
+  /*------- Flex container -------*/
+  .card_flex {
+    margin-top: 10px;
+    height: 230px;
+  }
+  .card_title {
+    font-size: 1.3em;
+  }
+  .card_description {
+    font-size: 1.05em;
+    line-height: 1.15;
+    margin-top: 7px;
+  }
+  .card_button {
+    padding-top: 11px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 1.05em;
+    letter-spacing: 1px;
+  }
+
+  /*__________________________________
+    ----------   CONTACT   ----------*/
+  .contact-message {
+    font-size: 1em;
+  }
+
+  /*------- Email Me -------*/
+  .social {
+    width: 100%;
+    max-width: none;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+  .email-wrap {
+    width: 130px;
+  }
+
+  /*------- Social Media  -------*/
+  .social-wrap {
+    margin: 0;
+    justify-content: space-around;
+    width: 190px;
+    height: 100%;
+  }
+  .modal {
+    width: 320px;
+    height: 361px;
+    margin-left: -160px;
+  }
+
+}
+
+
+
+@media all and (min-width: 500px) {
+  /*____________________________________
+  ----------   NAVIGATION   ----------*/
+  #main-nav {
+    height: 55px;
+    box-shadow: 0 2px 7px 0 #474B4F;
+    align-items: center;
+  }
+  .name-wrap {
+    width: 207px;
+  }
+  .diamond {
+    height: 35px;
+    width: 35px;
+    margin: 0;
+    margin-top: 13px;
+    margin-left: 17px;
+  }
+  .name {
+    font-size: 1.4em;
+    margin: 0;
+    margin-top: 14px;
+  }
+
+  /*------- Menu -------*/
+  #menuToggle {
+    width: 25px;
+    margin: 0;
+    margin-right: 17px;
+  }
+  /*Toggle button*/
+  #menuToggle input {
+    width: 25px;
+  }
+
+  /*hamburgerMenu lines*/
+  .hamburger {
+    width: 25px;
+    height: 3px;
+    transform-origin: -3px 0;
+  }
+
+  /*Menu Transforms*/
+  #menuToggle input:checked ~ span {
+    transform: rotate(45deg) translate( -0.588em, -16px);
+  }
+  #menuToggle input:checked ~ span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(-3px, 9px);
+  }
+
+  /*Dropdown menu*/
+  .mobile-menu li {
+    font-size: 1.2em;
+  }
+  .mobile-menu li a {
+    padding: 10px 0;
+  }
+
+  /*____________________________________
+  ---------   BODY CONTAINER   ---------*/
+  .container {
+    top: 55px;
+  }
+  /*_______________________________
+    ---------   COVER   ---------*/
+  #home {
+    height: 275px;
+  }
+  .title {
+    margin-top: 90px;
+    font-size: 1.9em;
+  }.sub-title {
+    font-size: 1.2em;
+  }
+
+  /*_______________________________
+    ----------   ABOUT   ----------*/
+  #about p {
+    font-size: 1.04em;
+    line-height: 1.4;
+  }
+
+  /*------- SKILLS -------*/
+  #about h2 {
+    font-size: 1.6em;
+  }
+  .skills {
+    max-width: 329px;
+  }.skill {
+    font-size: 1.04em;
+    padding: 5px 16px;
+  }
+  /*____________________________________
+    ----------   PORTFOLIO   ----------*/
+  .card {
+    margin-top: 30px;
+  }
+  .modal {
+    width: 370px;
+    height: 417px;
+    margin-left: -185px;
+  }
+
+}
+
+@media all and (min-width:601px) {
+  /*------- SKILLS -------*/
+  #about h2 {
+    text-align: left;
+  }
+  .skills {
+    justify-content: space-between;
+    max-width: none;
+    margin: 0;
+    width: 90%;
+  }
+
+  .modal {
+    width: 430px;
+    height: 485px;
+    margin-left: -215px;
+  } .modal-close {
+    right: 10px;
+    font-size: 22px;
+  }
+
+}
+
+
+
+
+
+@media all and (min-width:650px) {
+  /*_______________________________
+    ---------   COVER   ---------*/
+  #home {
+    background: url('../img/background-md.jpg') no-repeat;
+    background-size: cover;
+  }
+  /*_______________________________
+    ----------   ABOUT   ----------*/
+  .profile-pic {
+    max-width: 320px;
+  }
+  /*____________________________________
+    ----------   PORTFOLIO   ----------*/
+  .portfolio_grid {
+    margin: auto;
+    margin-top: 30px;
+    display: grid;
+    width: 554px;
+    grid-template-columns: 262px 262px;
+    grid-gap: 30px;
+  }
+  .card {
+    margin: 0;
+    width: 262px;
+    height: 385px;
+  }
+  /*------- Cover Images -------*/
+  .card_cover-coingecon, .card_cover-webapp,
+  .card_cover-api, .card_cover-photoGallery,
+  .card_cover-webGuide, .card_cover-gameApp,
+  .card_cover-form, .card_cover-responsiveLayout {
+    height: 160px;
+  }
+  /*------- Flex container -------*/
+  .card_flex {
+    margin-top: 8px;
+    height: 205px;
+  }
+  .card_title {
+    font-size: 1.2em;
+  }
+
+  .card_description {
+    margin-top: 5px;
+    font-size: 1em;
+    line-height: 1.1;
+  }
+
+  .card_button {
+    padding-top: 8px;
+    height: 35px;
+    border-radius: 4px;
+    font-size: 1em;
+  }
+
+  /*__________________________________
+    ----------   CONTACT   ----------*/
+  .contact-message {
+    font-size: 1.04em;
+    line-height: 1.4;
+  }
+}
+
+
+@media all and (min-width: 700px) {
+  /*------- Menu -------*/
+  #menuToggle, #menuToggle input,
+  .hamburger, .mobile-menu, .mobile-menu li {
+    display: none;
+  }
+  .large-menu {
+    display: flex;
+    width: 44%;
+    justify-content: space-between;
+    margin-right: 15px;
+    max-width: 350px;
+  }
+  .large-menu li {
+    font-size: 1.02em;
+  }
+  .large-menu li a {
+    display: block;
+    padding: 6px;
+    border-radius: 4px;
+    color: #fff;
+    transition: all 0.5s ease;
+  }
+
+  .large-menu li a:hover {
+    background-color: #86C232;
+  }
+
+  /*------- SKILLS -------*/
+  .skill-wrap {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+  }
+  #about h2 {
+    margin: 0;
+    font-size: 1.7em;
+  }
+  .skills {
+    width: 500px;
+  }
+
+}
+
+
+@media all and (min-width: 768px) {
+  /*------- Menu -------*/
+  .large-menu li a {
+    padding: 8px;
+  }
+  /*_______________________________
+    ---------   COVER   ---------*/
+  #home {
+    height: 300px;
+  }
+  .title {
+    font-size: 2em;
+  }
+  .sub-title {
+    font-size: 1.3em;
+  }
+  /*------- Containers Title -------*/
+  .title-b {
+    font-size: 1.8em;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  .divider {
+    border-top: 1px solid #86C232;
+  }
+  /*----------   ABOUT   ----------*/
+  .profile-pic {
+    float: right;
+    margin: 0 0 10px 20px;
+  }
+  .about-flex_info {
+    margin-top: 20px;
+  }
+
+  /*------- SKILLS -------*/
+  .skill-wrap {
+    margin: auto;
+    margin-top: 25px;
+    max-width: 630px;
+  }
+  /*----------   PORTFOLIO   ----------*/
+  .portfolio_grid {
+    grid-template-columns: 300px 300px;
+    width: 650px;
+    grid-gap: 50px;
+    margin-top: 20px;
+  }
+
+  .card {
+    width: 300px;
+    height: 441px;
+  }
+  /*------- Cover Images -------*/
+  .card_cover-coingecon, .card_cover-webapp,
+  .card_cover-api, .card_cover-photoGallery,
+  .card_cover-webGuide, .card_cover-gameApp,
+  .card_cover-form, .card_cover-responsiveLayout {
+    height: 185px;
+  }
+  /*------- Flex container -------*/
+  .card_flex {
+    width: 90%;
+    margin-top: 10px;
+    height: 230px;
+  }
+
+  .card_title {
+    font-size: 1.3em;
+  }
+
+  .card_description {
+    margin-top: 7px;
+    font-size: 1.05em;
+    line-height: 1.15;
+  }
+
+  .card_button {
+    padding-top: 11px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 1.05em;
+  }
+
+  /*----------   CONTACT   ----------*/
+  .contact-message {
+    font-size: 1.06em;
+  }
+  /*------- Email Me -------*/
+  .email-wrap {
+    width: 150px;
+  }
+  .email-wrap p {
+    font-size: 1em;
+  }
+  .mail-icon {
+    width: 40px;
+    height: 40px;
+  }
+  /*------- Social Media  -------*/
+  .social-wrap {
+    width: 200px;
+  }
+  .github-icon {
+    margin-top: -4px;
+    width: 45px;
+    height: 45px;
+  }
+  .instagram-icon,
+  .facebook-icon {
+    width: 39px;
+    height: 39px;
+  }
+  .modal {
+    border: 4px solid #86C232;
+    width: 550px;
+    height: 618px;
+    margin-left: -275px;
+    top: 20%;
+  }
+
+  .modal-close {
+    font-weight: 800;
+  }
+  .modal-avatar {
+    border-radius: 2px;
+  }
+
+}
+
+
+@media all and (min-width: 900px) {
+  .portfolio_grid {
+    width: 670px;
+    grid-gap: 70px;
+    margin-top: 30px;
+  }
+}
+
+
+@media all and (min-width: 940px) {
+  #main-nav {
+    height: 60px;
+    box-shadow: 0 3px 9px 0 #474B4F;
+  }
+  .name-wrap {
+    width: 240px;
+  }
+
+  .diamond {
+    height: 38px;
+    width: 38px;
+    margin-top: 14px;
+    margin-left: 20px;
+  }
+  .name {
+    font-size: 1.5em;
+    letter-spacing: 1px;
+    margin-top: 15px;
+  }
+  .large-menu {
+    max-width: 380px;
+    margin-right: 20px;
+  }
+  .large-menu li {
+    font-size: 1.08em;
+  }
+  .large-menu li a {
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .container {
+    top: 60px;
+  }
+
+  #home {
+    height: 320px;
+  }
+  .profile-pic {
+    max-width: 380px;
+  }
+
+  .portfolio_grid {
+    width: 826px;
+    grid-gap: 30px 20px;
+    grid-template-columns: repeat(3, 262px);
+  }
+  .card {
+    width: 262px;
+    height: 385px;
+  }
+  .card_cover-coingecon, .card_cover-webapp,
+  .card_cover-api, .card_cover-photoGallery,
+  .card_cover-webGuide, .card_cover-gameApp,
+  .card_cover-form, .card_cover-responsiveLayout {
+    height: 160px;
+  }
+  .card_flex {
+    margin-top: 8px;
+    height: 205px;
+  }
+  .card_title {
+    font-size: 1.2em;
+  }
+  .card_description {
+    margin-top: 5px;
+    font-size: 1em;
+    line-height: 1.1;
+  }
+  .card_button {
+    padding-top: 8px;
+    height: 35px;
+    border-radius: 4px;
+    font-size: 1em;
+  }
+
+}
+
+@media all and (min-width: 1050px) {
+  .portfolio_grid {
+    grid-gap: 40px;
+    width: 866px;
+  }
+  .modal {
+    top: 10%;
+    width: 700px;
+    height: 788px;
+    margin-left: -355px;
+  }
+
+  .modal-close {
+    font-size: 30px;
+  }
+}
+
+
+@media all and (min-width: 1100px) {
+  .large-menu li {
+    font-size: 1.1em;
+  }
+  #home {
+    height: 350px;
+  }.title {
+    margin-top: 100px;
+    font-size: 2.2em;
+  }.sub-title {
+    font-size: 1.4em;
+  }
+
+  .title-b {
+    font-size: 1.9em;
+  }
+  .about-flex {
+    margin-top: 30px;
+  }.about-flex::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .profile-pic {
+    max-width: 400px;
+    margin: 0;
+  }.about-flex_info {
+    margin: 0;
+    float: left;
+    width: 55%;
+  }
+
+  .skill-wrap {
+    flex-direction: column;
+    margin-top: 15px;
+  }.skills {
+    margin-top: 10px;
+    width: 90%;
+  }
+  .portfolio_grid {
+    width: 906px;
+    grid-gap: 60px;
+  }
+  .contact-message {
+    font-size: 1.1em;
+    margin-top: 20px;
+  }
+
+}
+
+
+
+@media all and (min-width: 1200px) {
+  .large-menu {
+    max-width: 400px;
+  }
+  .about-flex_info {
+    width: 60%;
+  } .skills {
+    width: 80%;
+  }
+  /*----------   PORTFOLIO   ----------*/
+  .portfolio_grid {
+    width: 960px;
+    grid-template-columns: repeat(3, 300px);
+    grid-gap: 30px;
+  }
+  .card {
+    width: 300px;
+    height: 441px;
+  }
+  .card_cover-coingecon, .card_cover-webapp,
+  .card_cover-api, .card_cover-photoGallery,
+  .card_cover-webGuide, .card_cover-gameApp,
+  .card_cover-form, .card_cover-responsiveLayout {
+    height: 185px;
+  }
+  .card_flex {
+    margin-top: 10px;
+    height: 230px;
+  }
+  .card_title {
+    font-size: 1.3em;
+  } .card_description {
+    margin-top: 7px;
+    font-size: 1.05em;
+    line-height: 1.15;
+  } .card_button {
+    padding-top: 11px;
+    letter-spacing: 1px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 1.05em;
+  }
+}
